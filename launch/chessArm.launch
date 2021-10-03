@@ -1,0 +1,12 @@
+ <launch>
+  <!-- Spawn a robot into Gazebo -->
+  
+  <node name="chessBoard" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/chessBoard/chessBoard.urdf -urdf -model chessBoard -x 0.34805 -y 0 -z 0"/>
+  <node name="chessArm" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/chessArm/chessArm.urdf -urdf -model chessArm -x 0 -y 0 -z 0" />
+
+     
+</launch>
+
+

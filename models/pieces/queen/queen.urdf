@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<robot name="queen">
+
+  <link name="queen__link_0">
+    <inertial>
+      <mass value="0.002"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    
+    <collision name="bishop__collision">
+      <origin rpy="1.570795  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://chessRobot/models/pieces/queen/whiteQueen.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp  value="10000000.0" />
+    <kd  value="1.0" />
+    <minDepth>0.002</minDepth>
+    <maxVel>0</maxVel>  
+    <dynamics damping="0.7" friction="1000" />
+    </collision>
+    
+    <visual name="queen__visual">
+      <origin rpy="1.570795  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://chessRobot/models/pieces/queen/whiteQueen.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>  

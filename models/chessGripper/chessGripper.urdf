@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<robot name="chessGripper">
+    
+  <joint name="hand_joint" type="fixed">
+    <parent link="wrist_link"/>
+    <child link="gripper_bar"/>
+    <origin rpy="0  0  0" xyz="0.07488 -0.66447 -0.0375"/>
+    <axis xyz="0  0  0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+  
+  <joint name="right_joint" type="revolute">
+    <parent link="gripper_bar"/>
+    <child link="right_grip"/>
+    <origin rpy="0  0  0" xyz="0     -0.0175 -0.01"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  
+  <joint name="left_joint" type="revolute">
+    <parent link="gripper_bar"/>
+    <child link="left_grip"/>
+    <origin rpy="0  0  0" xyz="0      0.0175 -0.01"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-1.0"/>
+  </joint>
+  
+  <link name="wrist_link">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="chessGripper__collision">
+      <origin rpy="0  0  0" xyz="0.07488 -0.66447  0"/>
+      <geometry>
+        <box size="0.02 0.02 0.055"/>
+      </geometry>
+    </collision>
+    <visual name="chessGripper__visual">
+      <origin rpy="0  0  0" xyz="0.07488 -0.66447  0"/>
+      <geometry>
+        <box size="0.02 0.02 0.055"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <link name="gripper_bar">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="chessGripper__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.02 0.04 0.02"/>
+      </geometry>
+    </collision>
+    <visual name="chessGripper__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.02 0.04 0.02"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <link name="left_grip">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="chessGripper__collision">
+      <origin rpy="0  0  0" xyz="0      0     -0.0425"/>
+      <geometry>
+        <box size="0.02 0.005 0.085"/>
+      </geometry>
+    </collision>
+    <visual name="chessGripper__visual">
+      <origin rpy="0  0  0" xyz="0      0     -0.0425"/>
+      <geometry>
+        <box size="0.02 0.005 0.085"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <link name="right_grip">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="chessGripper__collision">
+      <origin rpy="0  0  0" xyz="0      0     -0.0425"/>
+      <geometry>
+        <box size="0.02 0.005 0.085"/>
+      </geometry>
+    </collision>
+    <visual name="chessGripper__visual">
+      <origin rpy="0  0  0" xyz="0      0     -0.0425"/>
+      <geometry>
+        <box size="0.02 0.005 0.085"/>
+      </geometry>
+    </visual>
+  </link>
+  
+</robot>

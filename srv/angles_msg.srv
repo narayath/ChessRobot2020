@@ -1,0 +1,6 @@
+float64 swivel_ang
+float64 shoulder_ang
+float64 elbow_ang
+float64 wrist_ang
+---
+bool pos_ok

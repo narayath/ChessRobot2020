@@ -1,0 +1,255 @@
+<?xml version="1.0" ?>
+<robot name="chessArm">
+
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+    
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base"/>
+  </joint>
+  
+  
+  <joint name="elbow" type="revolute">
+    <parent link="upper_arm"/>
+    <child link="forearm"/>
+    <origin rpy="0  0  0" xyz="0   0   0.4"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-0.5"/>
+  </joint>
+  
+  <joint name="wrist" type="revolute">
+    <parent link="forearm"/>
+    <child link="wrist_link"/>
+    <origin rpy="0  0  0" xyz="0   0   0.4"/>
+    <axis xyz="0   1   0"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-0.5"/>
+  </joint>
+  
+  <joint name="hand_joint" type="fixed">
+    <parent link="wrist_link"/>
+    <child link="gripper_bar"/>
+    <origin rpy="0   0   0" xyz="0     0     0.055"/>
+    <axis xyz="0  0  0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+  
+  <joint name="right_grab" type="prismatic">
+    <parent link="gripper_bar"/>
+    <child link="right_grip"/>
+    <origin rpy="0  0  0" xyz="0 -0.001  0.0075"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="200.0" lower="-0.02" upper="0" velocity="-1"/>
+  </joint>
+  
+  <joint name="left_grab" type="prismatic">
+    <parent link="gripper_bar"/>
+    <child link="left_grip"/>
+    <origin rpy="0  0  0" xyz="0 0.001  0.0075"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="200.0" lower="0" upper="0.02" velocity="-1"/>
+  </joint>
+  
+  <joint name="shoulder" type="revolute">
+    <parent link="swivel_base"/>
+    <child link="upper_arm"/>
+    <origin rpy="0  0  0" xyz="0      0      0.0125"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-0.5"/>
+  </joint>
+  
+  <joint name="swivel" type="revolute">
+    <parent link="base"/>
+    <child link="swivel_base"/>
+    <origin rpy="0  0  0" xyz="0      0      0.1125"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="-1.0" lower="-1.79769e+308" upper="1.79769e+308" velocity="-0.5"/>
+  </joint>
+  
+  <link name="world"/>
+  
+  
+  
+  <link name="base">
+    <inertial>
+      <mass value="10"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="base_fixed_joint_lump__chessArm__collision_collision">
+      <origin rpy="0  0  0" xyz="0    0    0.05"/>
+      <geometry>
+        <box size="0.15 0.15 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="base_fixed_joint_lump__chessArm__visual_visual">
+      <origin rpy="0  0  0" xyz="0    0    0.05"/>
+      <geometry>
+        <box size="0.15 0.15 0.1"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <link name="forearm">
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="forearm_fixed_joint_lump__chessArm__collision_collision">
+      <origin rpy="0  0  0" xyz="0   0   0.2"/>
+      <geometry>
+        <box size="0.04 0.04 0.4"/>
+      </geometry>
+    </collision>
+    <visual name="forearm_fixed_joint_lump__chessArm__visual_visual">
+      <origin rpy="0  0  0" xyz="0   0   0.2"/>
+      <geometry>
+        <box size="0.04 0.04 0.4"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <link name="wrist_link">
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="chessArm__collision">
+      <origin rpy="0  0  0" xyz="0     0     0.025"/>
+      <geometry>
+        <box size="0.02 0.02 0.055"/>
+      </geometry>
+    </collision>
+    <visual name="chessArm__visual">
+      <origin rpy="0  0  0" xyz="0     0     0.025"/>
+      <geometry>
+        <box size="0.02 0.02 0.055"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <link name="gripper_bar">
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="chessArm__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.02 0.04 0.02"/>
+      </geometry>
+    </collision>
+    <visual name="chessArm__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.02 0.04 0.02"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <link name="left_grip">
+    <inertial>
+      <mass value="0.05"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="chessArm__collision">
+      <origin rpy="0  3.14159  -1.570795" xyz="0     -0.02     0.085"/>
+      <geometry>
+        <mesh filename="package://chessRobot/models/chessGripper/gripper.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    <mu1 value="100"/>
+    <mu2 value="100"/>
+    <kp  value="100" />
+    <kd  value="1.0" />
+    <minDepth>0.002</minDepth>
+    <maxVel>0</maxVel>  
+    <dynamics damping="0.7" friction="1000" />
+    </collision>
+    <visual name="chessArm__visual">
+     <origin rpy="0  3.14159  -1.570795" xyz="0     -0.02     0.085"/>
+      <geometry>
+        <mesh filename="package://chessRobot/models/chessGripper/gripper.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <link name="right_grip">
+    <inertial>
+      <mass value="0.05"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="chessArm__collision">
+      <origin rpy="0  3.14159  1.570795" xyz="0     0.02     0.085"/>
+      <geometry>
+        <mesh filename="package://chessRobot/models/chessGripper/gripper.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    <mu1 value="100"/>
+    <mu2 value="100"/>
+    <kp  value="100" />
+    <kd  value="1.0" />
+    <minDepth>0.002</minDepth>
+    <maxVel>0</maxVel>  
+    <dynamics damping="0.7" friction="1000" />
+    </collision>
+    <visual name="chessArm__visual">
+      <origin rpy="0  3.14159  1.570795" xyz="0     0.02     0.085"/>
+      <geometry>
+        <mesh filename="package://chessRobot/models/chessGripper/gripper.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <link name="swivel_base">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="swivel_base_fixed_joint_lump__chessArm__collision_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.025" radius="0.075"/>
+      </geometry>
+    </collision>
+    <visual name="swivel_base_fixed_joint_lump__chessArm__visual_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.025" radius="0.075"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <link name="upper_arm">
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="upper_arm_fixed_joint_lump__chessArm__collision_collision">
+      <origin rpy="0  0  0" xyz="0   0   0.2"/>
+      <geometry>
+        <box size="0.05 0.05 0.4"/>
+      </geometry>
+    </collision>
+    <visual name="upper_arm_fixed_joint_lump__chessArm__visual_visual">
+      <origin rpy="0  0  0" xyz="0   0   0.2"/>
+      <geometry>
+        <box size="0.05 0.05 0.4"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+</robot>

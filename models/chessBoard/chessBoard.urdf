@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<robot name="chessBoard">
+    
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="chessBoard__link_0"/>
+  </joint>
+  
+  <link name="chessBoard__link_0">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <!--inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/ -->
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="chessBoard__collision">
+      <origin rpy="0  0  0" xyz="0       0       0.009525"/>
+      <geometry>
+        <mesh filename="package://chessRobot/models/chessBoard/chessBoard.dae"/>
+      </geometry>
+    </collision>
+    <visual name="chessBoard__visual">
+      <origin rpy="0  0  0" xyz="0       0       0.009525"/>
+      <geometry>
+         <mesh filename="package://chessRobot/models/chessBoard/chessBoard.dae"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

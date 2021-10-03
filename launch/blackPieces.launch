@@ -1,0 +1,39 @@
+ <launch>
+  <!-- Spawn a robot into Gazebo -->
+  
+  <node name="bapawn" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/pawn/pawn_b.urdf -urdf -model ba2pawn -x 0.484575 -y 0.191135 -z 0.033025"/>
+  <node name="bbpawn" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/pawn/pawn_b.urdf -urdf -model bb2pawn -x 0.484575 -y 0.136525 -z 0.033025"/>
+  <node name="bcpawn" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/pawn/pawn_b.urdf -urdf -model bc2pawn -x 0.484575 -y 0.081915 -z 0.033025"/>
+  <node name="bdpawn" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/pawn/pawn_b.urdf -urdf -model bd2pawn -x 0.484575 -y 0.027305 -z 0.033025"/>
+  <node name="bepawn" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/pawn/pawn_b.urdf -urdf -model be2pawn -x 0.484575 -y -0.027305 -z 0.033025"/>
+  <node name="bfpawn" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/pawn/pawn_b.urdf -urdf -model bf2pawn -x 0.484575 -y -0.081915 -z 0.033025"/>
+  <node name="bgpawn" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/pawn/pawn_b.urdf -urdf -model bg2pawn -x 0.484575 -y -0.136525 -z 0.033025"/>
+  <node name="bhpawn" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/pawn/pawn_b.urdf -urdf -model bh2pawn -x 0.484575 -y -0.191135 -z 0.033025"/>
+     
+  <node name="barook" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/rook/rook_b.urdf -urdf -model barook -x 0.539185 -y 0.191135 -z 0.033025"/>
+  <node name="bbknight" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/knight/knight_b.urdf -urdf -model bbknight -x 0.539185 -y 0.136525 -z 0.033025"/>
+  <node name="bcbishop" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/bishop/bishop_b.urdf -urdf -model bcbishop -x 0.539185 -y 0.081915 -z 0.033025"/>
+  <node name="bqueen" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/queen/queen_b.urdf -urdf -model bqueen -x 0.539185 -y 0.027305 -z 0.033025"/>
+  <node name="bking" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/king/king_b.urdf -urdf -model bking -x 0.539185 -y -0.027305 -z 0.033025"/>
+  <node name="bfbishop" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/bishop/bishop_b.urdf -urdf -model bfbishop -x 0.539185 -y -0.081915 -z 0.033025"/>
+  <node name="bgknight" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/knight/knight_b.urdf -urdf -model bgknight -x 0.539185 -y -0.136525 -z 0.033025"/>
+  <node name="bhrook" pkg="gazebo_ros" type="spawn_model" 
+     args="-file /home/ros/ros_ws/src/chessRobot/models/pieces/rook/rook_b.urdf -urdf -model bhrook -x 0.539185 -y -0.191135 -z 0.033025"/>
+     
+</launch>  
+     
